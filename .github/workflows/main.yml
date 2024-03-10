@@ -21,7 +21,9 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install electron-builder@latest --save-dev
 
       - name: Build macOS package
         run: npm run build
