@@ -10,11 +10,10 @@
   },
   "author": "Your Name",
   "license": "MIT",
-  "dependencies": {
-    "electron": "^15.0.0"
-  },
+  
   "devDependencies": {
     "electron-builder": "^22.14.13"
+     "electron": "^15.0.0"
   },
   "build": {
     "mac": {
