@@ -1,41 +1,20 @@
 {
   "name": "url2go",
-  "version": "3.0.0",
-  "description": "url2go",
+  "version": "1.0.0",
+  "description": "URL2GO Desktop Application",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
-    "pack": "build --dir",
-    "pack-installer": "build",
-    "postinstall": "electron-builder install-app-deps",
-    "dist": "electron-builder build"
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Omarlamzah/SeeCast"
-  },
-  "keywords": ["Electron"],
-  "author": "Omarlamzah",
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "@electron/rebuild": "^3.6.0",
-    "electron": "^29.1.1",
-    "electron-builder": "^24.13.3",
-    "custom-electron-titlebar": "^4.2.8"
-  },
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "custom-electron-titlebar": "^4.2.8"
+    "electron": "^15.0.0",
+    "electron-builder": "^22.14.7"
   },
-  "build": {
-    "appId": "com.electron.SeeCast",
-    "productName": "SeeCast",
-    "mac": {
-      "target": "dmg",
-      "icon": "icon/icon.icns"
-    },
-    "win": {
-      "target": "NSIS",
-      "icon": "icon/icon.ico"
-    }
+  "devDependencies": {
+    "@electron/rebuild": "^3.6.0"
   }
 }
