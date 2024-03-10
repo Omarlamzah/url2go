@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Uninstall dmg-license
-        run: npm install dmg-license --save-dev 
-
       - name: Build macOS package
         run: npm run build
         env:
