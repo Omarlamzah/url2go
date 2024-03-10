@@ -1,35 +1,22 @@
-name: Build and Release
-
+name: Build DMG for URL2GO Desktop App
 on:
   push:
     branches:
       - main
-
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: macos-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
-
+      
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: '15.x'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build Electron App
-        run: npx electron-builder
-
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      
+      - name: Build DMG
+        run: npm run dist
