@@ -1,26 +1,22 @@
-name: Build and Release
-
+name: Build DMG for URL2GO Desktop App
 on:
   push:
     branches:
       - main
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '15.x'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build macOS package
+      - name: Build DMG
         run: npm run dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
