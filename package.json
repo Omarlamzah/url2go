@@ -7,7 +7,7 @@
     "start": "electron main.js",
     "pack": "build --dir",
     "pack-installer": "build",
-     "build": "electron-builder build --mac --win --publish never",
+    "build": "electron-builder build --mac --win --publish never",
     "deploy": "electron-builder build --mac --win --publish always",
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder build"
@@ -16,7 +16,6 @@
     "type": "git",
     "url": "https://github.com/Omarlamzah/SeeCast"
   },
-  
   "keywords": [
     "Electron"
   ],
@@ -26,9 +25,10 @@
     "@electron/rebuild": "^3.6.0",
     "electron": "^28.2.1",
     "electron-builder": "^22.14.7",
-     "dmg-license": {
-        "version": "^1.0.11",
-        "os": "darwin"
+    "custom-electron-titlebar": "^4.2.8",
+    "dmg-license": {
+      "version": "^1.0.11",
+      "os": "darwin"
     }
   },
   "dependencies": {
