@@ -15,10 +15,39 @@
     "electron-builder": "^22.14.7",
     "@electron/rebuild": "^3.6.0"
   },
-  "build": {
-    "mac": {
-      "target": "dmg",
-      "icon": "icon/icon.icns"
-    }
+ "build": {
+  "mac": {
+    "target": "dmg",
+    "icon": "icon/icon.icns"
+  },
+  "electronDist": "node_modules/electron/dist",
+  "nodeGypRebuild": "false", 
+  "appCategoryType": "public.app-category.utilities",
+  "afterSign": "scripts/notarize.js",
+  "afterPack": "scripts/remove-env-vars.js",
+  "afterAllArtifactBuild": "scripts/zip-mac.js",
+  "asar": false,
+  "appId": "com.yourapp.app",
+  "protocols": {
+    "name": "YourApp",
+    "schemes": [
+      "yourapp"
+    ]
+  },
+  "mac": {
+    "gatekeeperAssess": false,
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "build/entitlements.mac.plist",
+    "entitlementsInherit": "build/entitlements.mac.plist"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis"
+      }
+    ]
   }
+}
+
 }
