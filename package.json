@@ -26,7 +26,10 @@
     "@electron/rebuild": "^3.6.0",
     "electron": "^28.2.1",
     "electron-builder": "^22.14.7",
-     "dmg-license": "^1.0.11"  
+     "dmg-license": {
+        "version": "^1.0.11",
+        "os": "darwin"
+    }
   },
   "dependencies": {
     "custom-electron-titlebar": "^4.2.8"
