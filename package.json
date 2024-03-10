@@ -7,8 +7,7 @@
     "start": "electron main.js",
     "pack": "build --dir",
     "pack-installer": "build",
-    "build": "electron-builder build --mac --win --publish never",
-    "deploy": "electron-builder build --mac --win --publish always",
+  
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder build"
   },
