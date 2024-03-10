@@ -5,20 +5,14 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder",
-    "build": "electron-builder"
+    "dist": "create-dmg dist/url2go-1.0.0.dmg"
   },
   "author": "Your Name",
   "license": "MIT",
-  
   "devDependencies": {
-    "electron-builder": "^22.14.13"
-     "electron": "^15.0.0"
+    "electron": "^15.0.0"
   },
-  "build": {
-    "mac": {
-      "target": "dmg",
-      "icon": "icon/icon.icns"
-    }
+  "dependencies": {
+    "create-dmg": "^4.0.0"
   }
 }
