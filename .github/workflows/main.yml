@@ -1,12 +1,26 @@
+name: Build and Release
 
-The configuration you've provided seems like a GitHub Actions workflow named "Build and Release". It's designed to trigger a build and release process whenever there's a push to the main branch of your repository. Here's a breakdown of your workflow:
+on:
+  push:
+    branches:
+      - main
 
-Name: Build and Release
-Triggers: The workflow triggers on every push to the main branch of your repository.
-Jobs:
-build: This job runs on the latest version of Ubuntu.
-Steps:
-Checkout code: This step checks out your code repository.
-Set up Node.js: It sets up Node.js with version 20.
-Install dependencies: This step installs the npm dependencies required for your Electron application.
-Build macOS package: It runs the command npm run build to build your macOS package. It utilizes the GITHUB_TOKEN secret to authenticate with GitHub during the build process.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build macOS package
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
