@@ -7,7 +7,6 @@
     "start": "electron main.js",
     "pack": "build --dir",
     "pack-installer": "build",
-  
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder build"
   },
@@ -15,24 +14,17 @@
     "type": "git",
     "url": "https://github.com/Omarlamzah/SeeCast"
   },
-  "keywords": [
-    "Electron"
-  ],
+  "keywords": ["Electron"],
   "author": "Omarlamzah",
   "license": "CC0-1.0",
   "devDependencies": {
     "@electron/rebuild": "^3.6.0",
     "electron": "^29.1.1",
     "electron-builder": "^24.13.3",
-    "custom-electron-titlebar": "^4.2.8",
-        "dmg-license": "^1.0.11"
-
+    "custom-electron-titlebar": "^4.2.8"
   },
   "dependencies": {
     "custom-electron-titlebar": "^4.2.8"
-  },
-    "optionalDependencies": {
-    "dmg-license": "^1.0.11"
   },
   "build": {
     "appId": "com.electron.SeeCast",
