@@ -15,6 +15,12 @@ jobs:
         with:
           node-version: '15.x'
 
+      - name: Install Python
+        if: runner.os == 'macOS'
+        run: |
+          brew install python@3.9
+          echo 'export PATH="/usr/local/opt/python@3.9/bin:$PATH"' >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm install
 
