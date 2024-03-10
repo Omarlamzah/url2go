@@ -22,8 +22,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "@electron/rebuild": "^3.6.0",
-    "electron": "^28.2.1",
-    "electron-builder": "^22.14.7",
+    "electron": "^29.1.1",
+    "electron-builder": "^24.13.3",
     "custom-electron-titlebar": "^4.2.8",
     "dmg-license": {
       "version": "^1.0.11",
