@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Uninstall dmg-license
-        run: npm uninstall dmg-license --save-dev || true
+        run: npm install dmg-license --save-dev 
 
       - name: Build macOS package
         run: npm run build
