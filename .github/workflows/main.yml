@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build Electron App
-        run: npm run build
+        run: npx electron-builder
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
