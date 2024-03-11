@@ -4,12 +4,26 @@
   "description": "URL2GO Desktop Application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
     "electron": "^15.0.0",
+    "electron-builder": "^22.14.7",
     "@electron/rebuild": "^3.6.0"
+  },
+  "build": {
+    "mac": {
+      "target": "dmg",
+      "icon": "icon/icon.icns"
+    },
+    "win": {
+      "target": [
+        "NSIS"
+      ],
+      "icon": "icon/icon.ico"
+    }
   }
 }
