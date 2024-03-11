@@ -1,34 +1,34 @@
-name: Build and Release
+name: Build DMG
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: '16'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Build Application
-        run: npm run build
+      - name: Build DMG
+        run: npm run dist
 
-      - name: Create DMG
-        run: npm run create-dmg
-
-      - name: Upload DMG Artifact
+      - name: Upload DMG artifact
         uses: actions/upload-artifact@v2
         with:
-          name: URL2Go-DMG
-          path: dist/URL2Go.dmg
+          name: url2go-dmg
+          path: ./dist/*.dmg
