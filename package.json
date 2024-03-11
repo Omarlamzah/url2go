@@ -1,18 +1,30 @@
 {
-  "name": "url2go",
+  "name": "URL2Go",
   "version": "1.0.0",
   "description": "URL2GO Desktop Application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "create-dmg dist/url2go-1.0.0.dmg"
+    "dist": "electron-builder --mac",
+    "build": "electron-builder"
   },
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^15.0.0"
+    "electron": "^15.0.0",
+    "electron-builder": "^22.14.7",
+    "@electron/rebuild": "^3.6.0"
   },
-  "dependencies": {
-    "create-dmg": "^4.0.0"
+  "build": {
+    "mac": {
+      "target": "dmg",
+      "icon": "icon/icon.icns"
+ 
+    }, "win": {
+      "target": [
+        "NSIS"
+      ],
+      "icon": "icon/icon.ico"
+     }
   }
 }
