@@ -5,25 +5,25 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "npm run build && npm run create-dmg",
-    "build": "electron-builder",
-    "create-dmg": "create-dmg dist/URL2Go-darwin-x64/URL2Go.app dist/"
+    "dist": "electron-builder --mac",
+    "build": "electron-builder"
   },
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
     "electron": "^15.0.0",
-    "@electron/rebuild": "^3.6.0"
-  },
+    "electron-builder": "^22.14.7" 
+   },
   "build": {
     "mac": {
+      "target": "dmg",
       "icon": "icon/icon.icns"
-    },
-    "win": {
+ 
+    }, "win": {
       "target": [
         "NSIS"
       ],
       "icon": "icon/icon.ico"
-    }
+     }
   }
 }
