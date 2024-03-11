@@ -1,28 +1,30 @@
-name: Build DMG for URL2GO Desktop App
+name: Build and Package
+
 on:
   push:
     branches:
-      - main
+      - main # Change this to your main branch
+  pull_request:
+    branches:
+      - main # Change this to your main branch
+
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '15.x'
 
-      - name: Install Python
-        if: runner.os == 'macOS'
-        run: |
-          brew install python@3.9
-          echo 'export PATH="/usr/local/opt/python@3.9/bin:$PATH"' >> $GITHUB_ENV
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build DMG
-        run: npm run dist
+      - name: Build application
+        run: |
+          npm run start
+          # Commands to build DMG file using 'dmg' package or any other tool
