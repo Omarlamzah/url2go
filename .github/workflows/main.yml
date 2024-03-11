@@ -1,30 +1,34 @@
-name: Build and Package
+name: Build and Release
 
 on:
   push:
     branches:
-      - main # Change this to your main branch
-  pull_request:
-    branches:
-      - main # Change this to your main branch
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '15'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build application
+      - name: Build Application
         run: npm run build
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Create DMG
+        run: npm run create-dmg
+
+      - name: Upload DMG Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: URL2Go-DMG
+          path: dist/URL2Go.dmg
