@@ -25,6 +25,7 @@ jobs:
         run: npm install
 
       - name: Build application
-        run: |
-          npm run start
-          # Commands to build DMG file using 'dmg' package or any other tool
+        run: npm run build
+
+      - name: Move DMG file to dist folder
+        run: mv "dist/*.dmg" dist/
