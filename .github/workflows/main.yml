@@ -1,33 +1,21 @@
-name: Build DMG
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: macos-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-       
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build DMG
-        run: npm run dist
-
-      - name: Upload DMG artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: url2go-dmg
-          path: ./dist/*.dmg
+name: URL2Go
+version: 1.0.0
+description: URL2GO Desktop Application
+main: main.js
+scripts:
+  start: electron .
+  dist: electron-builder --mac
+  build: electron-builder
+author: Your Name
+license: MIT
+devDependencies:
+  electron: "^15.0.0"
+  electron-builder: "^22.14.7"
+build:
+  mac:
+    target: dmg
+    icon: icon/icon.icns
+  win:
+    target:
+      - NSIS
+    icon: icon/icon.ico
